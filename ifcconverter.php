@@ -21,7 +21,6 @@ function martialblog_ifc_convert($str){
     'Sol'
     );
 
-    $ifc_year = '2016';
 
     if ($dayoftheyear >= 364) {
         $ifc_date = 'Year Day';
@@ -29,12 +28,13 @@ function martialblog_ifc_convert($str){
     }
 
     $month_idx = floor($dayoftheyear / 28);
-    $ifc_month = $MONTHS[$month_idx];
+
     $ifc_day = ($dayoftheyear % 28) + 1;
+    $ifc_month = $MONTHS[$month_idx];
+    $ifc_year = date('Y', $timestamp);
 
     $ifc_date = "{$ifc_month} {$ifc_day}, {$ifc_year}";
     return $ifc_date;
-
 }
 
 add_filter('get_the_date', 'martialblog_ifc_convert');
