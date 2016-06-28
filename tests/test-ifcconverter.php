@@ -9,4 +9,13 @@ class PluginTest extends WP_UnitTestCase {
 
     }
 
+    function test_martialblog_ifc_convert() {
+
+        $expected = "March 1, 2016";
+        $actual = martialblog_ifc_convert("January 1, 2016");
+
+        $this->assertEquals($actual, $expected);
+
+    }
+
 }
