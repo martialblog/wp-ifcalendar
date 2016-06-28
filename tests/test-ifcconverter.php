@@ -18,4 +18,13 @@ class PluginTest extends WP_UnitTestCase {
 
     }
 
+    function test_martialblog_ifc_convert_yearday() {
+
+        $expected = "Year Day";
+        $actual = martialblog_ifc_convert("December 31, 2016");
+
+        $this->assertEquals($actual, $expected);
+
+    }
+
 }
