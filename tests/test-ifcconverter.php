@@ -21,20 +21,20 @@ class PluginTest extends WP_UnitTestCase {
     function test_martialblog_ifc_convert_Ymd() {
         # Test: Y-m-d
 
-        $expected = "2016-01-01";
-        $actual = martialblog_ifc_convert("2016-01-01");
+        $expected_Ymd = "2016-01-01";
+        $actual_Ymd = martialblog_ifc_convert("2016-01-01");
 
-        $this->assertEquals($actual, $expected);
+        $this->assertEquals($actual_Ymd, $expected_Ymd);
 
     }
 
     function test_martialblog_ifc_convert_mdY() {
         # Test: m/d/Y
 
-        $expected = "01/01/2016";
-        $actual = martialblog_ifc_convert("01/01/2016");
+        $expected_mdY = "01/01/2016";
+        $actual_mdY = martialblog_ifc_convert("01/01/2016");
 
-        $this->assertEquals($actual, $expected);
+        $this->assertEquals($actual_mdY, $expected_mdY);
 
     }
 
