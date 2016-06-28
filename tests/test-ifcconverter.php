@@ -9,19 +9,40 @@ class PluginTest extends WP_UnitTestCase {
 
     }
 
-    function test_martialblog_ifc_convert() {
+    function test_martialblog_ifc_convert_yearday() {
 
-        $expected = "March 1, 2016";
-        $actual = martialblog_ifc_convert("January 1, 2016");
+        $expected = "Year Day";
+        $actual = martialblog_ifc_convert("December 31, 2016");
 
         $this->assertEquals($actual, $expected);
 
     }
 
-    function test_martialblog_ifc_convert_yearday() {
+    function test_martialblog_ifc_convert_Ymd() {
+        # Test: Y-m-d
 
-        $expected = "Year Day";
-        $actual = martialblog_ifc_convert("December 31, 2016");
+        $expected = "2016-01-01";
+        $actual = martialblog_ifc_convert("2016-01-01");
+
+        $this->assertEquals($actual, $expected);
+
+    }
+
+    function test_martialblog_ifc_convert_mdY() {
+        # Test: m/d/Y
+
+        $expected = "01/01/2016";
+        $actual = martialblog_ifc_convert("01/01/2016");
+
+        $this->assertEquals($actual, $expected);
+
+    }
+
+    function test_martialblog_ifc_convert_FjY() {
+        # Test: F j, Y
+
+        $expected = "March 1, 2016";
+        $actual = martialblog_ifc_convert("January 1, 2016");
 
         $this->assertEquals($actual, $expected);
 

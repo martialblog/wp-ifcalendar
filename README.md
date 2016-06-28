@@ -27,5 +27,4 @@ The Months (with 28 Days each) are:
 This gives the year 364 Days, therefore we add a *Year Day* at the end of the year.
 ## TODO
 - Check of more hooks are required
-- Handle different date formats (depending on whatever is set in Admin)
 - Translations maybe
