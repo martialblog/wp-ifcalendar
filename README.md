@@ -25,6 +25,9 @@ The Months (with 28 Days each) are:
 - Sol
 
 This gives the year 364 Days, therefore we add a *Year Day* at the end of the year.
+
 ## TODO
+- Refactor a bit - function is way too large
+- Add more tests - May first and last of every month, plus leap years
 - Check of more hooks are required
 - Translations maybe
