@@ -6,46 +6,47 @@ class PluginTest extends WP_UnitTestCase {
     function test_plugin_activated() {
 
         $this->assertTrue( is_plugin_active( PLUGIN_PATH ) );
-
     }
 
     function test_martialblog_ifc_convert_yearday() {
 
         $expected = "Year Day";
+
         $actual = martialblog_ifc_convert("December 31, 2016");
 
-        $this->assertEquals($actual, $expected);
-
+        $this->assertEquals($expected, $actual);
     }
 
     function test_martialblog_ifc_convert_Ymd() {
         # Test: Y-m-d
 
-        $expected_Ymd = "2016-01-01";
-        $actual_Ymd = martialblog_ifc_convert("2016-01-01");
+        update_option( 'date_format', 'Y-m-d' );
+        $expected = "2016-01-01";
 
-        $this->assertEquals($actual_Ymd, $expected_Ymd);
+        $actual = martialblog_ifc_convert("2016-01-01");
 
+        $this->assertEquals($expected, $actual);
     }
 
     function test_martialblog_ifc_convert_mdY() {
         # Test: m/d/Y
 
-        $expected_mdY = "01/01/2016";
-        $actual_mdY = martialblog_ifc_convert("01/01/2016");
+        update_option( 'date_format', 'm/d/Y' );
+        $expected = "01/01/2016";
 
-        $this->assertEquals($actual_mdY, $expected_mdY);
+        $actual = martialblog_ifc_convert("01/01/2016");
 
+        $this->assertEquals($expected, $actual);
     }
 
     function test_martialblog_ifc_convert_FjY() {
         # Test: F j, Y
 
+        update_option( 'date_format', 'F j, Y' );
         $expected = "March 1, 2016";
+
         $actual = martialblog_ifc_convert("January 1, 2016");
 
-        $this->assertEquals($actual, $expected);
-
+        $this->assertEquals($expected, $actual);
     }
-
 }
