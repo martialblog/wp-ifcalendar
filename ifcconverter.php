@@ -9,7 +9,7 @@ function martialblog_ifc_pad($num) {
 
 function martialblog_ifc_convert($str){
 
-    $ifc_date = get_option ('date_format');
+    $ifc_date = get_option('date_format');
     $timestamp = strtotime($str);
     $dayoftheyear = date("z", $timestamp);
 
@@ -36,8 +36,9 @@ function martialblog_ifc_convert($str){
     }
 
     $ifc_year = date('Y', $timestamp);
-    $ifc_month_num = floor($dayoftheyear / 28);
-    $ifc_month = $MONTHS[$ifc_month_num];
+    $ifc_month_idx = floor($dayoftheyear / 28);
+    $ifc_month_num = martialblog_ifc_pad($ifc_month_idx + 1);
+    $ifc_month = $MONTHS[$ifc_month_idx];
     $ifc_day = ($dayoftheyear % 28) + 1;
     $ifc_day_leading_zeros = martialblog_ifc_pad($ifc_day);
 
